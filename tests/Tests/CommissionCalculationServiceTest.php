@@ -31,7 +31,7 @@ class CommissionCalculationServiceTest extends TestCase
                 'EUR' => 1,
                 'USD' => 1.087251,
                 'JPY' => 167.148649,
-                'GBP'=> 0.845748
+                'GBP' => 0.845748
             ]
         ]);
 
@@ -47,5 +47,9 @@ class CommissionCalculationServiceTest extends TestCase
         $result = $service->process();
 
         $this->assertIsArray($result);
+
+        foreach ($result as $value) {
+            $this->assertIsFloat($value);
+        }
     }
 }
